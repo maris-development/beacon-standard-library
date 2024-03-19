@@ -44,6 +44,17 @@ lazy_static! {
     /// ```
     pub static ref STD_CONVERSIONS : &'static HashMap<&'static str, Conversion<f64>> = &crate::conversions::STD_CONVERSIONS;
 
+
+
+    /// The standard library. Contains all the standard modules and their functions.
+    /// # Example
+    /// ```
+    /// use beacon_std_lib::STD;
+    /// use beacon_std_lib::args::Args;
+    /// let jde = 2460388.929757;
+    /// let fun = STD.function("time::jde_to_unix").unwrap();
+    /// assert!(fun(jde, Args::none()).is_ok());
+    /// ```
     pub static ref STD : Library = Library {
         modules: {
             let mut modules = HashMap::new();
